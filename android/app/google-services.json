@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1004147607667",
+    "firebase_url": "https://utopia-64e45.firebaseio.com",
+    "project_id": "utopia-64e45",
+    "storage_bucket": "utopia-64e45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004147607667:android:6f2d8ef357ec194dbcc206",
+        "android_client_info": {
+          "package_name": "com.Priyanka.Utopia_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004147607667-7n74r05aq84rt8gtdccnain9rfdret08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfZ5116sFAHB7khBIoz-1r3biT_0f-eC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004147607667-7n74r05aq84rt8gtdccnain9rfdret08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
