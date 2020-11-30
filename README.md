@@ -1,7 +1,7 @@
 # Utopia_1
 For a better tomorrow!!!!
 
-![Utopia]()
+![Utopia](https://github.com/priyanka090700/Utopia_1/blob/master/assets/images/logo.png)
 
 ## Getting Started
 
