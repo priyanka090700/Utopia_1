@@ -7,16 +7,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 import 'dat.dart';
-import 'addDate.dart';
 
-class DatesTeacher extends StatefulWidget {
-  DatesTeacher({Key key}) : super(key: key);
+
+class DatesStudent extends StatefulWidget {
+  DatesStudent({Key key}) : super(key: key);
 
   @override
-  _DatesTeacherState createState() => _DatesTeacherState();
+  _DatesStudentState createState() => _DatesStudentState();
 }
 
-class _DatesTeacherState extends State<DatesTeacher> {
+class _DatesStudentState extends State<DatesStudent> {
   List<Task> items;
   FirestoreService fireServ = new FirestoreService();
   StreamSubscription<QuerySnapshot> todoTasks;
@@ -78,25 +78,6 @@ class _DatesTeacherState extends State<DatesTeacher> {
                         '${items[index].tasktime}',
                         '${items[index].taskdetails}');
                   }),
-              Positioned(
-                bottom: size.height * 0.05,
-                right: size.width * 0.05,
-                child: FloatingActionButton(
-                  backgroundColor: Colors.blue[900],
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => NewDate(Task('', '', '', '')),
-                          fullscreenDialog: true),
-                    );
-                  },
-                ),
-              ),
             ]),
           ),
         ],
@@ -135,33 +116,28 @@ class _DatesTeacherState extends State<DatesTeacher> {
                       left: 10.0,
                       child: Text(taskName,
                           
-                          style: GoogleFonts.staatliches(
-                            color: Colors.black, fontSize: 25.0)),
+                          style: TextStyle(
+                              fontSize: 25.0, fontWeight: FontWeight.bold)),
                     ),
                     Positioned(
                       top: 10.0,
-                      right: 5.0,
-                      child:Container(
-                        
-                        color: Colors.white,
-                        height: size.height * 0.07,
-                        width: size.width * 0.3,
-                        child: Text(taskDate,
-                        textAlign: TextAlign.right,
-                          style: GoogleFonts.patuaOne(
-                            color: Colors.black, fontSize: 20.0)),
-                     ) ),
+                      right: 10.0,
+                      child: Text(taskDate,
+                          
+                          style: TextStyle(
+                              fontSize: 20.0,)),
+                    ),
                     Positioned(
                       top: 40.0,
                       left: 10.0,
                       child: Container(
-                        
                         height: size.height * 0.10,
-                        width: size.width * 0.5,
+                        width: size.width * 0.6,
                         child: Text(taskDetail,
                             
-                            style: GoogleFonts.acme(
-                            color: Colors.lightBlue[900], fontSize: 15.0)),
+                            style: TextStyle(
+                              color: Colors.lightBlue[900],
+                                fontSize: 15.0, )),
                       ),
                     ),
                     Positioned(

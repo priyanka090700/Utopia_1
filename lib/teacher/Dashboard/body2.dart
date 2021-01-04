@@ -59,13 +59,13 @@ class _TeacherBodyState extends State<TeacherBody> {
                   children:<Widget> [
         buildListItem('assets/images/notice.png','Notices & \nCirculars','\teachernotice',1),
         buildListItem('assets/images/calendar.png','Important \nDates','\teacherdate',2),
-        buildListItem('assets/images/notes.png','Notes','\notes',3),
-        buildListItem('assets/images/syllabus.png','Syllabus','\notes',4),
-        buildListItem('assets/images/timetable.png','Time Table','\notes',5),
-        buildListItem('assets/images/papers.png','Practice \nPapers','\notes',6),
-        buildListItem('assets/images/ebook.png','E-Books','\notes',7),
-        buildListItem('assets/images/event.png','Events','\notes',8),
-        buildListItem('assets/images/attendence.png','Attendance','\notes',9),
+        buildListItem('assets/images/notes.png','Notes','\teachersem',3),
+        buildListItem('assets/images/syllabus.png','Syllabus','\teachersem',4),
+        buildListItem('assets/images/timetable.png','Time Table','\teachersem',5),
+        buildListItem('assets/images/papers.png','Practice \nPapers','\teachersem',6),
+        buildListItem('assets/images/ebook.png','E-Books','\teachersem',7),
+        buildListItem('assets/images/event.png','Events','\teacherevent',8),
+        buildListItem('assets/images/attendence.png','Attendance','\teachersem',9),
         buildListItem('assets/images/Contact.png','Contact Us','\contact',10),
 
         

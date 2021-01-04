@@ -57,7 +57,7 @@ class _BodyState extends State<Body> {
                   
                   children:<Widget> [
         buildListItem('assets/images/notice.png','Notices & \nCirculars','\teachernotice'),
-        buildListItem('assets/images/calendar.png','Important \nDates','\teacherdate'),
+        buildListItem('assets/images/calendar.png','Important \nDates','\studentdate'),
         buildListItem('assets/images/notes.png','Notes','\notes'),
         buildListItem('assets/images/syllabus.png','Syllabus','\teachersyllabus'),
         buildListItem('assets/images/timetable.png','Time Table','\notes'),

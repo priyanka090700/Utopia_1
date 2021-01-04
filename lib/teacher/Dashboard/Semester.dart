@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Notes extends StatefulWidget {
-  Notes({Key key}) : super(key: key);
+class SemesterTeacher extends StatefulWidget {
+  SemesterTeacher({Key key}) : super(key: key);
 
   @override
-  _NotesState createState() => _NotesState();
+  _SemesterTeacherState createState() => _SemesterTeacherState();
 }
 
-class _NotesState extends State<Notes> {
+class _SemesterTeacherState extends State<SemesterTeacher> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> steps = [
@@ -67,7 +67,6 @@ class _NotesState extends State<Notes> {
     Size size = MediaQuery.of(context).size;
     return new GestureDetector(
       onTap: () {
-        //Navigator.of(context).pushNamed('\subjects');
       },
       child: Stack(
         children: <Widget>[
@@ -110,7 +109,12 @@ class _NotesState extends State<Notes> {
             top: 300.0,
             child: InkWell(
               onTap: () {
+                if(Globals.select==3){
+                  Globals.sem=5;
+                  Navigator.of(context).pushNamed('\teachernotes');
+                }
                 if(Globals.select==4){
+                  Globals.sem=5;
                   Navigator.of(context).pushNamed('\teachersyllabus');
                 }
                 //Navigator.of(context).pushNamed('\subjects');
@@ -165,7 +169,6 @@ class _NotesState extends State<Notes> {
     Size size = MediaQuery.of(context).size;
     return new GestureDetector(
       onTap: () {
-        //Navigator.of(context).pushNamed('\subjects');
       },
       child: Stack(
         children: <Widget>[
@@ -208,8 +211,14 @@ class _NotesState extends State<Notes> {
             top: 300.0,
             child: InkWell(
               onTap: () {
-                
-                Navigator.of(context).pushNamed('\subjects');
+                if(Globals.select==3){
+                  Globals.sem=6;
+                  Navigator.of(context).pushNamed('\teachernotes');
+                }
+                if(Globals.select==4){
+                  Globals.sem=6;
+                  Navigator.of(context).pushNamed('\teachersyllabus');
+                }
               },
               child: Container(
                 padding: EdgeInsets.all(10),
@@ -233,7 +242,6 @@ class _NotesState extends State<Notes> {
             top: 300.0,
             child: InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed('\subjects');
               },
               child: Container(
                 padding: EdgeInsets.all(10),

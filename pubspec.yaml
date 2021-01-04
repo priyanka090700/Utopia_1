@@ -38,6 +38,10 @@ dependencies:
   firebase_auth: 
   firebase_core: 
   cloud_firestore: 
+  flutter_plugin_pdf_viewer: 
+  file_picker: 
+  firebase_storage: 
+  firebase_database: 
   
 
 dev_dependencies:

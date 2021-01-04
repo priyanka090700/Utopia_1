@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:Utopia_1/globals.dart';
+import 'package:Utopia_1/teacher/Dashboard/Notes/sub.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,7 +12,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'sub.dart';
+
 
 class NewSubject extends StatefulWidget {
   
@@ -24,16 +25,18 @@ NewSubject(this.subject);
 class _NewSubjectState extends State<NewSubject> {
   
   String db;
+  
+ 
   TextEditingController _subjectNameController;
 
   @override
   void initState() {
     super.initState();
-if(Globals.sem == 5){
-db='Sem5Syllabus';
+    if(Globals.sem == 5){
+db='Sem5Notes';
  }
  if(Globals.sem == 6){
-db='Sem6Syllabus';
+db='Sem6Notes';
  }
     _subjectNameController = new TextEditingController(text: widget.subject.subjectname);
     
@@ -139,7 +142,7 @@ db='Sem6Syllabus';
     
      file = File(result.files.first.path);
    }
-    savePdf(file.readAsBytesSync(), '${fileName}.pdf');
+    savePdf(file.readAsBytesSync(), '${fileName}notes.pdf');
   }
 
   savePdf(List<int> asset, String name) async {

@@ -1,33 +1,32 @@
-
 import 'package:Utopia_1/globals.dart';
-import 'package:Utopia_1/teacher/Dashboard/Syllabus/viewPDF.dart';
-
+import 'package:Utopia_1/teacher/Dashboard/Notes/sub.dart';
+import 'package:Utopia_1/teacher/Dashboard/Notes/subject.dart';
+import 'package:Utopia_1/teacher/Dashboard/Notes/viewPDF.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-import 'sub.dart';
-import 'subject.dart';
-
-class SyllabusTeacher extends StatefulWidget {
-  SyllabusTeacher({Key key}) : super(key: key);
+class NotesTeacher extends StatefulWidget {
+  NotesTeacher({Key key}) : super(key: key);
 
   @override
-  _SyllabusTeacherState createState() => _SyllabusTeacherState();
+  _NotesTeacherState createState() => _NotesTeacherState();
 }
 
-class _SyllabusTeacherState extends State<SyllabusTeacher> {
- List<Subject> itemList = List();
- String db; 
+class _NotesTeacherState extends State<NotesTeacher> {
+ List<Subject> itemList = List(); 
+ String db;
+ 
+
   @override
   void initState() {
     super.initState();
     if(Globals.sem == 5){
-db='Sem5Syllabus';
+db='Sem5Notes';
  }
  if(Globals.sem == 6){
-db='Sem6Syllabus';
+db='Sem6Notes';
  }
  final mainReference = FirebaseDatabase.instance.reference().child(db);
     mainReference.once().then((DataSnapshot snap) {
@@ -55,7 +54,7 @@ db='Sem6Syllabus';
         children: <Widget>[
           SizedBox(height: size.height * 0.05),
           Text(
-            "SYLLABUS",
+            "NOTES",
             textAlign: TextAlign.start,
             style: GoogleFonts.pollerOne(color: Colors.white, fontSize: 35.0),
           ),

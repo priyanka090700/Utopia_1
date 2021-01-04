@@ -12,7 +12,7 @@ class FirestoreService {
 
       final Task task = new Task(taskname, taskdetails,taskdate,tasktime);
       final Map<String, dynamic> data = task.toMap();
-      await tx.set(ds.reference, data);
+      tx.set(ds.reference, data);
       return data;
     };
 
