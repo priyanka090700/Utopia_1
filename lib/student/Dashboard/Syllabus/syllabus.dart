@@ -1,24 +1,17 @@
-
 import 'package:Utopia_1/globals.dart';
-import 'package:Utopia_1/teacher/Dashboard/Syllabus/viewPDF.dart';
-
+import 'package:Utopia_1/student/Dashboard/sub.dart';
+import 'package:Utopia_1/student/Dashboard/viewPDF.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-import 'sub.dart';
-import 'subject.dart';
-
-class SyllabusTeacher extends StatefulWidget {
-  SyllabusTeacher({Key key}) : super(key: key);
-
+class SyllabusStudent extends StatefulWidget {
   @override
-  _SyllabusTeacherState createState() => _SyllabusTeacherState();
+  _SyllabusStudentState createState() => _SyllabusStudentState();
 }
 
-class _SyllabusTeacherState extends State<SyllabusTeacher> {
- List<Subject> itemList = List();
+class _SyllabusStudentState extends State<SyllabusStudent> {
+  List<Subject> itemList = List();
  String db; 
   @override
   void initState() {
@@ -79,25 +72,6 @@ class _SyllabusTeacherState extends State<SyllabusTeacher> {
                   itemBuilder: (context, index) {
                     return buildSubjectItem('${itemList[index].subjectname}','${itemList[index].link}');
                   }),
-              Positioned(
-                bottom: size.height * 0.05,
-                right: size.width * 0.05,
-                child: FloatingActionButton(
-                  backgroundColor: Colors.blue[900],
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => NewSubject(Subject('',"")),
-                          fullscreenDialog: true),
-                    );
-                  },
-                ),
-              ),
             ]),
           ),
         ],

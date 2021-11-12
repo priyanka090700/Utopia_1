@@ -136,7 +136,7 @@ class _DatesTeacherState extends State<DatesTeacher> {
                       child: Text(taskName,
                           
                           style: GoogleFonts.staatliches(
-                            color: Colors.black, fontSize: 25.0)),
+                            color: Colors.black, fontSize: 27.0,decoration: TextDecoration.underline, letterSpacing: 1.0 ))
                     ),
                     Positioned(
                       top: 10.0,
@@ -152,7 +152,7 @@ class _DatesTeacherState extends State<DatesTeacher> {
                             color: Colors.black, fontSize: 20.0)),
                      ) ),
                     Positioned(
-                      top: 40.0,
+                      top: 46.0,
                       left: 10.0,
                       child: Container(
                         

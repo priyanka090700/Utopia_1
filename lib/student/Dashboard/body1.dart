@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class TeacherBody extends StatefulWidget {
-  TeacherBody({Key key}) : super(key: key);
+class StudentBody extends StatefulWidget {
+  StudentBody({Key key}) : super(key: key);
 
   @override
-  _TeacherBodyState createState() => _TeacherBodyState();
+  _StudentBodyState createState() => _StudentBodyState();
 }
 
-class _TeacherBodyState extends State<TeacherBody> {
+class _StudentBodyState extends State<StudentBody> {
   
   @override
   Widget build(BuildContext context) {
@@ -58,15 +58,15 @@ class _TeacherBodyState extends State<TeacherBody> {
                   
                   children:<Widget> [
         
-        buildListItem('assets/images/calendar.png','Important \nDates','\teacherdate',1),
-        buildListItem('assets/images/notice.png','Notices & \nCirculars','\teachernotice',2),
-        buildListItem('assets/images/notes.png','Notes','\teachersem',3),
-        buildListItem('assets/images/syllabus.png','Syllabus','\teachersem',4),
-        buildListItem('assets/images/timetable.png','Time Table','\teachersem',5),
-        buildListItem('assets/images/papers.png','Practice \nPapers','\teachersem',6),
-        buildListItem('assets/images/ebook.png','E-Books','\teachersem',7),
-        buildListItem('assets/images/event.png','Events','\teacherevent',8),
-        buildListItem('assets/images/attendence.png','Attendance','\teachersem',9),
+        buildListItem('assets/images/calendar.png','Important \nDates','\studentdate',1),
+        buildListItem('assets/images/notice.png','Notices & \nCirculars','\studentnotice',2),
+        buildListItem('assets/images/notes.png','Notes','\studentsem',3),
+        buildListItem('assets/images/syllabus.png','Syllabus','\studentsem',4),
+        buildListItem('assets/images/timetable.png','Time Table','\studentsem',5),
+        buildListItem('assets/images/papers.png','Practice \nPapers','\studentsem',6),
+        buildListItem('assets/images/ebook.png','E-Books','\studentsem',7),
+        buildListItem('assets/images/event.png','Events','\studentevent',8),
+        buildListItem('assets/images/attendence.png','Attendance','\studentsem',9),
         buildListItem('assets/images/Contact.png','Contact Us','\contact',10),
 
         

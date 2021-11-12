@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:Utopia_1/globals.dart';
+import 'package:Utopia_1/teacher/Dashboard/Ebook/sub.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,7 +12,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'sub.dart';
 
 class NewSubject extends StatefulWidget {
   
@@ -31,12 +31,12 @@ class _NewSubjectState extends State<NewSubject> {
     super.initState();
 if(Globals.sem == 5){
       if(Globals.branch =='cse'){
-        db='Sem5CseSyllabus';
+        db='Sem5CseEbook';
       }
     }
  if(Globals.sem == 6){
    if(Globals.branch =='cse'){
-      db='Sem6CseSyllabus';}
+      db='Sem6CseEbook';}
  }
     _subjectNameController = new TextEditingController(text: widget.subject.subjectname);
     

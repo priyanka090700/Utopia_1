@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:Utopia_1/globals.dart';
+import 'package:Utopia_1/teacher/Dashboard/Attendance/sub.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,12 +12,12 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'sub.dart';
+
 
 class NewSubject extends StatefulWidget {
-  
+final String text; 
 final Subject subject;
-NewSubject(this.subject);
+NewSubject(this.subject, this.text);
   @override
   _NewSubjectState createState() => _NewSubjectState();
 }
@@ -24,19 +25,21 @@ NewSubject(this.subject);
 class _NewSubjectState extends State<NewSubject> {
   
   String db;
+  
+ 
   TextEditingController _subjectNameController;
 
   @override
   void initState() {
     super.initState();
-if(Globals.sem == 5){
+    if(Globals.sem == 5){
       if(Globals.branch =='cse'){
-        db='Sem5CseSyllabus';
+        db='Sem5CseAttendance';
       }
     }
  if(Globals.sem == 6){
    if(Globals.branch =='cse'){
-      db='Sem6CseSyllabus';}
+      db='Sem6CseAttendance';}
  }
     _subjectNameController = new TextEditingController(text: widget.subject.subjectname);
     
@@ -63,14 +66,14 @@ if(Globals.sem == 5){
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'ADD NEW SUBJECT',
+                      'ADD NEW MONTH',
                       style: GoogleFonts.pollerOne(
                           color: Colors.blue[900], fontSize: 20.0),
                     ),
                     SizedBox(height: 20.0),
                     TextFormField(
                       controller: _subjectNameController,
-                      decoration: InputDecoration(hintText: 'Subject Name'),
+                      decoration: InputDecoration(hintText: 'Month'),
                       validator: (String value){
                         if (value.isEmpty) {
                           return "Please Enter Some Text";
@@ -142,7 +145,7 @@ if(Globals.sem == 5){
     
      file = File(result.files.first.path);
    }
-    savePdf(file.readAsBytesSync(), '${fileName}.pdf');
+    savePdf(file.readAsBytesSync(), '${fileName}Attendance.pdf');
   }
 
   savePdf(List<int> asset, String name) async {
@@ -152,17 +155,17 @@ if(Globals.sem == 5){
     documentFileUpload(url,name);
   }
 
-  // ignore: non_constant_identifier_names
-  String CreateCryptoRandomString([int length = 32]) {
+  
+  String createCryptoRandomString([int length = 32]) {
     final Random _random = Random.secure();
     final values = List<int>.generate(length, (i) => _random.nextInt(256));
     return base64Url.encode(values);
   }
 
   void documentFileUpload(String str,String name) {
-    final mainReference = FirebaseDatabase.instance.reference().child(db);
+    final mainReference = FirebaseDatabase.instance.reference().child(db).child(widget.text);
     var data = {"PDF": str, "FileName": _subjectNameController.text};
-    mainReference.child(CreateCryptoRandomString()).set(data).then((v) {
+    mainReference.child(createCryptoRandomString()).set(data).then((v) {
       print("Store Successfully");
     });
   } 

@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SemesterTeacher extends StatefulWidget {
-  SemesterTeacher({Key key}) : super(key: key);
+class SemesterStudent extends StatefulWidget {
+  SemesterStudent({Key key}) : super(key: key);
 
   @override
-  _SemesterTeacherState createState() => _SemesterTeacherState();
+  _SemesterStudentState createState() => _SemesterStudentState();
 }
 
-class _SemesterTeacherState extends State<SemesterTeacher> {
+class _SemesterStudentState extends State<SemesterStudent> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> steps = [
@@ -112,32 +112,32 @@ class _SemesterTeacherState extends State<SemesterTeacher> {
                 if(Globals.select==3){
                   Globals.sem=5;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teachernotes');
+                  Navigator.of(context).pushNamed('\studentnotes');
                 }
                 if(Globals.select==4){
                   Globals.sem=5;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teachersyllabus');
+                  Navigator.of(context).pushNamed('\studentsyllabus');
                 }
                 if(Globals.select==5){
                   Globals.sem=5;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teachertt');
+                  Navigator.of(context).pushNamed('\studenttt');
                 }
                 if(Globals.select==6){
                   Globals.sem=5;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teacherpp');
+                  Navigator.of(context).pushNamed('\studentpp');
                 }
                 if(Globals.select==7){
                   Globals.sem=5;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teacherebook');
+                  Navigator.of(context).pushNamed('\studentebook');
                 }
                 if(Globals.select==9){
                   Globals.sem=5;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teacherattendance');
+                  Navigator.of(context).pushNamed('\studentattendance');
                 }
               },
               child: Container(
@@ -235,32 +235,32 @@ class _SemesterTeacherState extends State<SemesterTeacher> {
                 if(Globals.select==3){
                   Globals.sem=6;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teachernotes');
+                  Navigator.of(context).pushNamed('\studentnotes');
                 }
                 if(Globals.select==4){
                   Globals.sem=6;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teachersyllabus');
+                  Navigator.of(context).pushNamed('\studentsyllabus');
                 }
                 if(Globals.select==5){
                   Globals.sem=6;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teachertt');
+                  Navigator.of(context).pushNamed('\studenttt');
                 }
                 if(Globals.select==6){
                   Globals.sem=6;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teacherpp');
+                  Navigator.of(context).pushNamed('\studentpp');
                 }
                 if(Globals.select==7){
                   Globals.sem=6;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teacherebook');
+                  Navigator.of(context).pushNamed('\studentebook');
                 }
                 if(Globals.select==9){
                   Globals.sem=5;
                   Globals.branch='cse';
-                  Navigator.of(context).pushNamed('\teacherattendance');
+                  Navigator.of(context).pushNamed('\studentattendance');
                 }
               },
               child: Container(

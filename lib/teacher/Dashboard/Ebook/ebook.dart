@@ -1,36 +1,38 @@
+
 import 'package:Utopia_1/globals.dart';
-import 'package:Utopia_1/teacher/Dashboard/Notes/newsub.dart';
-import 'package:Utopia_1/teacher/Dashboard/Notes/sub.dart';
-import 'package:Utopia_1/teacher/Dashboard/Notes/units.dart';
+import 'package:Utopia_1/teacher/Dashboard/Ebook/sub.dart';
+import 'package:Utopia_1/teacher/Dashboard/Ebook/subject.dart';
+import 'package:Utopia_1/teacher/Dashboard/Ebook/viewPDF.dart';
+
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NotesTeacher extends StatefulWidget {
-  NotesTeacher({Key key}) : super(key: key);
+
+class EbookTeacher extends StatefulWidget {
+  EbookTeacher({Key key}) : super(key: key);
 
   @override
-  _NotesTeacherState createState() => _NotesTeacherState();
+  _EbookTeacherState createState() => _EbookTeacherState();
 }
 
-class _NotesTeacherState extends State<NotesTeacher> {
-  List<Subject> itemList = List();
-  String db;
-
+class _EbookTeacherState extends State<EbookTeacher> {
+ List<Subject> itemList = List();
+ String db; 
   @override
   void initState() {
     super.initState();
-    if (Globals.sem == 5) {
-      if (Globals.branch == 'cse') {
-        db = 'Sem5CseNotes';
+    if(Globals.sem == 5){
+      if(Globals.branch =='cse'){
+        db='Sem5CseEbook';
       }
     }
-    if (Globals.sem == 6) {
-      if (Globals.branch == 'cse') {
-        db = 'Sem6CseNotes';
-      }
-    }
-    final mainReference = FirebaseDatabase.instance.reference().child(db);
+ if(Globals.sem == 6){
+   if(Globals.branch =='cse'){
+      db='Sem6CseEbook';}
+ }
+ final mainReference = FirebaseDatabase.instance.reference().child(db);
     mainReference.once().then((DataSnapshot snap) {
       var data = snap.value;
       itemList.clear();
@@ -56,7 +58,7 @@ class _NotesTeacherState extends State<NotesTeacher> {
         children: <Widget>[
           SizedBox(height: size.height * 0.05),
           Text(
-            "NOTES",
+            "EBOOKS",
             textAlign: TextAlign.start,
             style: GoogleFonts.pollerOne(color: Colors.white, fontSize: 35.0),
           ),
@@ -75,9 +77,7 @@ class _NotesTeacherState extends State<NotesTeacher> {
               ListView.builder(
                   itemCount: itemList.length,
                   itemBuilder: (context, index) {
-                    return buildSubjectItem(
-                      '${itemList[index].subjectname}',
-                    );
+                    return buildSubjectItem('${itemList[index].subjectname}','${itemList[index].link}');
                   }),
               Positioned(
                 bottom: size.height * 0.05,
@@ -92,7 +92,7 @@ class _NotesTeacherState extends State<NotesTeacher> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => NewSub(Sub('')),
+                          builder: (context) => NewSubject(Subject('',"")),
                           fullscreenDialog: true),
                     );
                   },
@@ -105,17 +105,17 @@ class _NotesTeacherState extends State<NotesTeacher> {
     )));
   }
 
-  buildSubjectItem(String subjectName) {
+  buildSubjectItem(String subjectName,String link) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),
       child: InkWell(
           onTap: () {},
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                height: size.height * 0.10,
+                height: size.height * 0.15,
                 width: size.width * 0.94,
                 child: Card(
                   color: Colors.lightBlueAccent[100],
@@ -125,31 +125,33 @@ class _NotesTeacherState extends State<NotesTeacher> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(children: <Widget>[
-                      Positioned(
-                        top: 5.0,
-                        left: 5.0,
-                        child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => UnitPage(text: subjectName),
-                          fullscreenDialog: true));
-                      },
-                      child: Container(
-                        child: Text(subjectName,
-                            textAlign: TextAlign.left,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(subjectName,
+                            textAlign: TextAlign.center,
                             style: TextStyle(
-                                fontSize: 17.0, fontWeight: FontWeight.bold)),
-
-                      ),
-                    ),
-                      ),
-                    ]),
-                  ),
+                                fontSize: 20.0, fontWeight: FontWeight.bold)),
+                        InkWell(
+                          child: Container(
+                            margin: EdgeInsets.only(top: 5.0),
+                            child: Text("View",
+                                style: GoogleFonts.acme(
+                                    color: Colors.purple[700],
+                                    fontSize: size.height * 0.025)),
+                          ),
+                          onTap: () {
+                            String passData = link;
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ViewPdf(),
+                                    settings: RouteSettings(
+                                      arguments: passData,
+                                    )));
+                          },
+                        ),
+                      ]),
                 ),
               ),
             ],

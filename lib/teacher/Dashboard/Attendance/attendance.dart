@@ -1,19 +1,20 @@
+
 import 'package:Utopia_1/globals.dart';
-import 'package:Utopia_1/teacher/Dashboard/Notes/newsub.dart';
-import 'package:Utopia_1/teacher/Dashboard/Notes/sub.dart';
-import 'package:Utopia_1/teacher/Dashboard/Notes/units.dart';
+import 'package:Utopia_1/teacher/Dashboard/Attendance/newsub.dart';
+import 'package:Utopia_1/teacher/Dashboard/Attendance/sub.dart';
+import 'package:Utopia_1/teacher/Dashboard/Attendance/years.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NotesTeacher extends StatefulWidget {
-  NotesTeacher({Key key}) : super(key: key);
+class AttendanceTeacher extends StatefulWidget {
+  AttendanceTeacher({Key key}) : super(key: key);
 
   @override
-  _NotesTeacherState createState() => _NotesTeacherState();
+  _AttendanceTeacherState createState() => _AttendanceTeacherState();
 }
 
-class _NotesTeacherState extends State<NotesTeacher> {
+class _AttendanceTeacherState extends State<AttendanceTeacher> {
   List<Subject> itemList = List();
   String db;
 
@@ -22,12 +23,12 @@ class _NotesTeacherState extends State<NotesTeacher> {
     super.initState();
     if (Globals.sem == 5) {
       if (Globals.branch == 'cse') {
-        db = 'Sem5CseNotes';
+        db = 'Sem5CseAttendance';
       }
     }
     if (Globals.sem == 6) {
       if (Globals.branch == 'cse') {
-        db = 'Sem6CseNotes';
+        db = 'Sem6CseAttendance';
       }
     }
     final mainReference = FirebaseDatabase.instance.reference().child(db);
@@ -56,7 +57,7 @@ class _NotesTeacherState extends State<NotesTeacher> {
         children: <Widget>[
           SizedBox(height: size.height * 0.05),
           Text(
-            "NOTES",
+            "ATTENDANCE",
             textAlign: TextAlign.start,
             style: GoogleFonts.pollerOne(color: Colors.white, fontSize: 35.0),
           ),
@@ -136,7 +137,7 @@ class _NotesTeacherState extends State<NotesTeacher> {
                         Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => UnitPage(text: subjectName),
+                          builder: (context) => MonthPage(text: subjectName),
                           fullscreenDialog: true));
                       },
                       child: Container(

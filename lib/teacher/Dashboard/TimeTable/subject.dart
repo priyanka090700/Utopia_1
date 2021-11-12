@@ -31,12 +31,12 @@ class _NewSubjectState extends State<NewSubject> {
     super.initState();
 if(Globals.sem == 5){
       if(Globals.branch =='cse'){
-        db='Sem5CseSyllabus';
+        db='Sem5CseTimeTable';
       }
     }
  if(Globals.sem == 6){
    if(Globals.branch =='cse'){
-      db='Sem6CseSyllabus';}
+      db='Sem6CseTimeTable';}
  }
     _subjectNameController = new TextEditingController(text: widget.subject.subjectname);
     
@@ -63,14 +63,14 @@ if(Globals.sem == 5){
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'ADD NEW SUBJECT',
+                      'ADD NEW SECTION',
                       style: GoogleFonts.pollerOne(
                           color: Colors.blue[900], fontSize: 20.0),
                     ),
                     SizedBox(height: 20.0),
                     TextFormField(
                       controller: _subjectNameController,
-                      decoration: InputDecoration(hintText: 'Subject Name'),
+                      decoration: InputDecoration(hintText: 'Section Name'),
                       validator: (String value){
                         if (value.isEmpty) {
                           return "Please Enter Some Text";

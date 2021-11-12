@@ -26,7 +26,7 @@ class _ViewPdfState extends State<ViewPdf> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text("Retrieve Pdf"),
+        title: Text(""),
       ),
       body: doc == null ? Loading() : PDFViewer(document: doc),
     );

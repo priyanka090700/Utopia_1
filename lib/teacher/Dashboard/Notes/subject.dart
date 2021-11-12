@@ -15,9 +15,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class NewSubject extends StatefulWidget {
-  
+final String text; 
 final Subject subject;
-NewSubject(this.subject);
+NewSubject(this.subject, this.text);
   @override
   _NewSubjectState createState() => _NewSubjectState();
 }
@@ -33,10 +33,13 @@ class _NewSubjectState extends State<NewSubject> {
   void initState() {
     super.initState();
     if(Globals.sem == 5){
-db='Sem5Notes';
- }
+      if(Globals.branch =='cse'){
+        db='Sem5CseNotes';
+      }
+    }
  if(Globals.sem == 6){
-db='Sem6Notes';
+   if(Globals.branch =='cse'){
+      db='Sem6CseNotes';}
  }
     _subjectNameController = new TextEditingController(text: widget.subject.subjectname);
     
@@ -63,14 +66,14 @@ db='Sem6Notes';
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'ADD NEW SUBJECT',
+                      'ADD NEW UNIT',
                       style: GoogleFonts.pollerOne(
                           color: Colors.blue[900], fontSize: 20.0),
                     ),
                     SizedBox(height: 20.0),
                     TextFormField(
                       controller: _subjectNameController,
-                      decoration: InputDecoration(hintText: 'Subject Name'),
+                      decoration: InputDecoration(hintText: 'Unit Name'),
                       validator: (String value){
                         if (value.isEmpty) {
                           return "Please Enter Some Text";
@@ -160,7 +163,7 @@ db='Sem6Notes';
   }
 
   void documentFileUpload(String str,String name) {
-    final mainReference = FirebaseDatabase.instance.reference().child(db);
+    final mainReference = FirebaseDatabase.instance.reference().child(db).child(widget.text);
     var data = {"PDF": str, "FileName": _subjectNameController.text};
     mainReference.child(CreateCryptoRandomString()).set(data).then((v) {
       print("Store Successfully");

@@ -1,17 +1,12 @@
 import 'dart:async';
 
-import 'package:Utopia_1/teacher/Dashboard/Dates/FireStore.dart';
+import 'package:Utopia_1/student/Dashboard/Dates/FireStore.dart';
+import 'package:Utopia_1/student/Dashboard/Dates/dat.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-import 'dat.dart';
-
-
 class DatesStudent extends StatefulWidget {
-  DatesStudent({Key key}) : super(key: key);
-
   @override
   _DatesStudentState createState() => _DatesStudentState();
 }
@@ -116,28 +111,33 @@ class _DatesStudentState extends State<DatesStudent> {
                       left: 10.0,
                       child: Text(taskName,
                           
-                          style: TextStyle(
-                              fontSize: 25.0, fontWeight: FontWeight.bold)),
+                          style: GoogleFonts.staatliches(
+                            color: Colors.black, fontSize: 27.0,decoration: TextDecoration.underline, letterSpacing: 1.0 )),
                     ),
                     Positioned(
                       top: 10.0,
-                      right: 10.0,
-                      child: Text(taskDate,
-                          
-                          style: TextStyle(
-                              fontSize: 20.0,)),
-                    ),
+                      right: 5.0,
+                      child:Container(
+                        
+                        color: Colors.white,
+                        height: size.height * 0.07,
+                        width: size.width * 0.3,
+                        child: Text(taskDate,
+                        textAlign: TextAlign.right,
+                          style: GoogleFonts.patuaOne(
+                            color: Colors.black, fontSize: 20.0)),
+                     ) ),
                     Positioned(
-                      top: 40.0,
+                      top: 46.0,
                       left: 10.0,
                       child: Container(
+                        
                         height: size.height * 0.10,
-                        width: size.width * 0.6,
+                        width: size.width * 0.5,
                         child: Text(taskDetail,
                             
-                            style: TextStyle(
-                              color: Colors.lightBlue[900],
-                                fontSize: 15.0, )),
+                            style: GoogleFonts.acme(
+                            color: Colors.lightBlue[900], fontSize: 15.0)),
                       ),
                     ),
                     Positioned(
